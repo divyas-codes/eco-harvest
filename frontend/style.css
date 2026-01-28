@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(to right, #2ecc71, #27ae60);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 50px;
+}
+
+.btn {
+  background: orange;
+  padding: 12px 20px;
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.how, .form-section {
+  padding: 50px;
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 200px;
+}
+
+.impact {
+  background: #2ecc71;
+  color: white;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px;
+}
+
+.impact-card {
+  background: white;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+form {
+  max-width: 400px;
+  margin: auto;
+}
+
+input, textarea, button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
