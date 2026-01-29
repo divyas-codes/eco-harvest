@@ -11,7 +11,7 @@ document.getElementById("pickupForm").addEventListener("submit", async (e) => {
     details: inputs[4].value
   };
 
-  const res = await fetch("http://localhost:5000/api/pickup", {
+  const res = await fetch("/api/pickup", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data)
