@@ -1,7 +1,8 @@
 {
   "name": "eco-harvest",
   "version": "1.0.0",
+  "type":"module",
   "dependencies": {
-    "mongoose": "^7.0.0"
+    "mongoose": "^8.0.0"
   }
 }

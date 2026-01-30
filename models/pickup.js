@@ -6,10 +6,6 @@ const PickupSchema = new mongoose.Schema({
   phone: String,
   address: String,
   details: String,
-  date: {
-    type: Date,
-    default: Date.now
-  }
 });
 
 export default mongoose.models.Pickup ||

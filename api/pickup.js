@@ -1,13 +1,7 @@
 import mongoose from "mongoose";
-import Pickup from "../model/Pickup.js";
+import Pickup from "../models/pickup.js";
 
 let isConnected = false;
-
-async function connectDB() {
-  if (isConnected) return;
-  await mongoose.connect(process.env.MONGO_URI);
-  isConnected = true;
-}
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -15,13 +9,28 @@ export default async function handler(req, res) {
   }
 
   try {
-    await connectDB();
+    if (!process.env.MONGO_URI) {
+      throw new Error("MONGO_URI not found");
+    }
 
-    const pickup = new Pickup(req.body);
+    if (!isConnected) {
+      await mongoose.connect(process.env.MONGO_URI);
+      isConnected = true;
+    }
+
+    const { name, email, phone, address, details } = req.body;
+
+    if (!name || !email || !phone || !address) {
+      return res.status(400).json({ message: "Missing fields" });
+    }
+    const Pickup = require("../model/pickup");
+
+
     await pickup.save();
 
-    res.status(201).json({ message: "Pickup saved" });
+    return res.status(200).json({ message: "Pickup saved successfully" });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error("API ERROR:", error);
+    return res.status(500).json({ message: "Server error" });
   }
 }
