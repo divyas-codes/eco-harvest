@@ -8,5 +8,5 @@ const PickupSchema = new mongoose.Schema({
   details: String,
 });
 
-export default mongoose.models.Pickup ||
-  mongoose.model("Pickup", PickupSchema);
+module.exports = mongoose.model("Pickup", pickupSchema);
+
